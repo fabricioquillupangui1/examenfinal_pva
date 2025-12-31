@@ -467,3 +467,116 @@ body {
         width: 35px;
     }
 }
+
+/* =========================================
+    11. SECCIÓN VIDEO VERTICAL (DISEÑO PREMIUM)
+   ========================================= */
+
+/* Contenedor principal: Separa la sección de las demás */
+.video-split-section {
+    padding: 80px 20px;
+    background: #ffffff; /* Fondo blanco limpio */
+    clear: both; /* Evita que otras secciones se monten */
+    display: flex;
+    justify-content: center;
+}
+
+/* El grid: Divide texto y video en dos columnas */
+.video-split-container {
+    max-width: 1100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 50px;
+    align-items: center; /* Centra verticalmente el texto con el video */
+}
+
+/* Estilos de la Columna de Texto */
+.video-text-content {
+    text-align: left;
+}
+
+.video-text-content h2 {
+    color: var(--primary);
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.video-text-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.video-features {
+    list-style: none;
+    padding: 0;
+}
+
+.video-features li {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+}
+
+/* El Marco del Celular (Phone Frame) */
+.video-vertical-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.phone-frame {
+    width: 310px; /* Ancho real de un smartphone en web */
+    background: #000; /* Color de la carcasa */
+    padding: 12px;
+    border-radius: 45px; /* Bordes redondeados tipo iPhone/Samsung */
+    box-shadow: 0 25px 50px rgba(0, 74, 140, 0.2);
+    border: 4px solid #333;
+    position: relative;
+}
+
+/* El contenedor del video dentro del celular */
+.video-responsive-vertical {
+    position: relative;
+    padding-bottom: 177.77%; /* Relación de aspecto 9:16 exacta */
+    height: 0;
+    overflow: hidden;
+    border-radius: 35px; /* Redondeado interno para que encaje */
+    background: #000;
+}
+
+.video-responsive-vertical iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* =========================================
+    RESPONSIVO: PARA CELULARES
+   ========================================= */
+@media (max-width: 850px) {
+    .video-split-container {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+        gap: 30px;
+    }
+    
+    .video-text-content {
+        text-align: center; /* Centra el texto en móviles */
+        order: 1;
+    }
+    
+    .video-vertical-wrapper {
+        order: 2; /* El video sale debajo del texto en móvil */
+    }
+
+    .phone-frame {
+        width: 270px; /* Un poco más pequeño en pantallas chicas */
+    }
+}
